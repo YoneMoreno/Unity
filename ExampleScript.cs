@@ -42,6 +42,10 @@ public class ExampleScript : MonoBehaviour { //It is extending from MonoBehaviou
 	public float speed = 0.0f;
 	public float distance = 0.0f;
 	public float time = 0.0f;
+
+	float maxSpeedLimit = 70.0f;
+	float minSpeedLimit = 40.0f;
+
 	void Start () {
 
 	}
@@ -55,9 +59,20 @@ public class ExampleScript : MonoBehaviour { //It is extending from MonoBehaviou
 
 	void SpeedCheck(){
 		speed = distance / time;
-		if (speed>70 || speed<40) {
-			print ("You are breaking the law");
+		if (speed > maxSpeedLimit) {
+			{
+				print ("You are exceeding the speed limit");				
+			}
+			if (speed < minSpeedLimit)
+			{
+				print("You are a turtle");
+			}
+			if (speed == maxSpeedLimit || speed == minSpeedLimit) {
+				print ("You are very close to the LIMITS");
+			}
+			else {
+				print("You are into the limit");
+			}
 		}
-		print ("You are travelling at " + speed + " KM/H.");
 	}
 }
